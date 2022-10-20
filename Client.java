@@ -6,15 +6,8 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
-
-
-public class Client extends Thread
+public class Client 
 {
-	public void run() {
-		System.out.println("This code is running in a thread");
-	  }
-	  Main thread = new Main();
-	  thread.start;
 	public static void main(String[] args) {
 		System.out.println("Signin <message>\nMessage <message>\nSignout");
 
