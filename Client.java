@@ -6,14 +6,23 @@ import java.net.InetAddress;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 
-public class Client 
+
+
+public class Client extends Thread
 {
+	public void run() {
+		System.out.println("This code is running in a thread");
+	  }
+	  Main thread = new Main();
+	  thread.start;
 	public static void main(String[] args) {
+		System.out.println("Signin <message>\nMessage <message>\nSignout");
+
+
 		if (args.length != 1) {
 			System.out.println("Error: you forgot <server IP>");
 			return;
 		}
-
 		InetAddress serverAddress = null;
 		int serverPort = 4242;
 		DatagramSocket socket = null;
