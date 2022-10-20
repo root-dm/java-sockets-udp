@@ -31,6 +31,8 @@ public class Client
 		//Dhmiourgeia socket gia send kai receive.
 		try {
                 	socket = new DatagramSocket();
+					receiveThread temp = new receiveThread(socket);
+					temp.start();
             	}catch (SocketException e) {
                 	e.printStackTrace();
             	}	
@@ -49,4 +51,25 @@ public class Client
                     }
                 }	
 	}
+}
+
+class receiveThread extends Thread
+{
+    DatagramSocket socket;
+    public receiveThread(DatagramSocket socket)
+    {
+        this.socket = socket;
+    }
+    
+    public void run()
+    {
+        while (true) {
+			try {
+				String s = NetworkTools.receiveData(this.socket);
+				System.out.println(s);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+    }
 }
